@@ -1,0 +1,16 @@
+apiVersion: core.k8sgpt.ai/v1alpha1 #
+kind: K8sGPT
+metadata:
+  name: k8sgpt-analyzer
+  namespace: k8sgpt-operator-system
+spec:
+  ai:
+    enabled: true
+    model: gpt-4
+    backend: openai
+    secret:
+      name: k8sgpt-api-secret
+      key: openai-api-key #
+  sink:
+    type: slack
+    webhook: "https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
